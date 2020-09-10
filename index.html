@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="canvasjs.min.js"></script>
+</head>
+<body>
+    <div id="improper" >
+        LINE PLOTTER
+    </div>
+    <div id="container">
+        <div id="input_panel">
+            <div id="inp_label">
+                INPUT
+            </div>
+            <button id="add_new" onclick="add_new_block()">+</button>
+            <div id="inp_place_con">
+                <div id="main">
+                    <input  type="text" placeholder="(X,Y)" id="inp_plac_box"></input>
+                </div>
+            </div> 
+            <button type="submit" onclick="submit()" id="submit">Go Graph!</button>  
+        </div>
+        
+        <div id="graphArea">     
+                <div class="mcar" id='mcarid'>
+                    <div id="GraphType">Equation Straight Line :</div>
+                    <div id="Eq"></div>
+                </div>
+        </div>
+
+    </div>
+    
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="script.js"></script>    
+</body>
+</html>
