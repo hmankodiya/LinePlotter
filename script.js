@@ -1,6 +1,6 @@
 function add_new_block(){
     let count=document.getElementById('inp_place_con').childElementCount+1;
-    console.log(count);
+   // console.log(count);
     if(count>8) alert("Can't add more than 8 cells");
     else{    
         let new_field=document.createElement('div');
@@ -10,20 +10,18 @@ function add_new_block(){
     }
 } 
 function get_val(){
-    // let arr=document.getElementsByTagName("inp_plac_box");
     let list=document.getElementsByTagName("input");
     let len=list.length;
     var arr=[]
-    console.log(len);   
+    //console.log(len);   
     for(let i=0;i<len;i++){
         if(list[i].value!=""){    
             arr.push(list[i].value);
         }
     }
-    console.log("get_val",arr);
+    //console.log("get_val",arr);
     return arr;
 }
-var countrr=0;
 function get_cood(str){
     var tup=[null,null];
     let x=0,y=0;
@@ -32,13 +30,11 @@ function get_cood(str){
     }
     if(str[str.length-1]==')') y=1;
     str = str.slice(x,str.length-y); 
-    console.log("str->",str);
+    //console.log("str->",str);
     if(str.includes(','))  {
         tup =str.split(',').map(i =>Number(i));
     }
     else {
-        console.log("hellpo ",countrr);
-        countrr+=1;
         alert('Invalid Syntax');
     }
     return tup;
@@ -53,7 +49,6 @@ function submit(){
     passVal(num_arr);
     // console.log(num_arr[0][0],num_arr[0][1]);
     // console.log(num_arr[1][0],num_arr[1][1]);
-    // return num_arr;
 }
 function checkStline(num_arr) {
 	let m=null;
@@ -80,7 +75,7 @@ function checkStline(num_arr) {
 	return [m,c];
 }
 function passVal(num_arr) {
-    console.log("numarr",num_arr);
+//     console.log("numarr",num_arr);
     let mcar=checkStline(num_arr);
     let m=mcar[0],c=mcar[1];
     var layout = {
@@ -94,7 +89,7 @@ function passVal(num_arr) {
         connectgaps: false,
         
     };
-    console.log("m c",m,c);
+//     console.log("m c",m,c);
     if (m!=null && c!= null){
         trace.x.push(0);
         trace.y.push(c);
@@ -102,10 +97,9 @@ function passVal(num_arr) {
             trace.x.push(-c/m);
             trace.y.push(0);
         }
-        console.log("hd",toString(m));
+//         console.log("hd",toString(m));
         let mcarVis=document.getElementById('mcarid').style.visibility='visible';
         let equation=document.getElementById("Eq");
-        // equation.style.visibility = "visible";
         equation.innerHTML="Y = ("+m.toString(10)+") * X + "+"("+c.toString(10)+")";
     }
     else if(m==null&&c==null){
@@ -115,10 +109,7 @@ function passVal(num_arr) {
         trace.x.push(num_arr[i][0]);
         trace.y.push(num_arr[i][1]);
     }
-    console.log(trace);
+//     console.log(trace);
     Plotly.newPlot('graphArea', [trace],layout,{scrollZoom: true,
         displayModeBar: true,modeBarButtonsToRemove: ['zoom2d'],displaylogo: false,responsive: true,selected:'pan2d',responsive:true});
 }
-    // function disable() {
-        
-    // }    
